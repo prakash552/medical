@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Medical Store | Login</title>
+  <style>
+    :root {
+      --primary-color: #0073e6; /* Medical blue */
+      --secondary-color: #00a3a3; /* Teal accent */
+      --text-color: #333;
+      --secondary-text-color: #666;
+      --bg-color: #e6f0fa; /* Light blue-gray */
+      --card-bg: #ffffff;
+      --error-color: #d32f2f;
+      font-size: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, var(--bg-color), #ffffff);
+      padding: 20px;
+    }
+
+    .container {
+      display: flex;
+      max-width: 900px;
+      width: 100%;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      background: var(--card-bg);
+    }
+
+    .left-section {
+      width: 50%;
+      background: linear-gradient(135deg, var(--primary-color), #005bb5);
+      padding: 40px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .left-section h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .left-section h1 span {
+      margin-left: 10px;
+      font-size: 30px;
+    }
+
+    .left-section p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .right-section {
+      width: 50%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--card-bg);
+      color: var(--text-color);
+    }
+
+    .right-section h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    .right-section p.subtitle {
+      color: var(--secondary-text-color);
+      margin-bottom: 20px;
+    }
+
+    .error-message {
+      color: var(--error-color);
+      margin-bottom: 15px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .success-message {
+      color: var(--secondary-color);
+      margin-bottom: 15px;
+      font-size: 14px;
+      display: none;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      color: var(--text-color);
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      background: #f7fafc;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .form-group input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 5px rgba(0, 115, 230, 0.3);
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #005bb5;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 20px;
+      color: var(--secondary-text-color);
+      font-size: 14px;
+    }
+
+    .login-link a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    .forgot-password {
+      text-align: right;
+      margin-top: -10px;
+      margin-bottom: 15px;
+    }
+
+    .forgot-password a {
+      color: var(--secondary-text-color);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .forgot-password a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        max-width: 100%;
+      }
+
+      .left-section,
+      .right-section {
+        width: 100%;
+      }
+
+      .left-section {
+        padding: 20px;
+        min-height: 200px;
+        align-items: center;
+      }
+
+      .left-section h1 {
+        font-size: 28px;
+      }
+
+      .left-section h1 span {
+        font-size: 24px;
+      }
+
+      .left-section p {
+        font-size: 14px;
+      }
+
+      .right-section {
+        padding: 20px;
+      }
+
+      .right-section h2 {
+        font-size: 20px;
+      }
+
+      .right-section p.subtitle {
+        font-size: 14px;
+        margin-bottom: 15px;
+      }
+
+      .form-group label {
+        font-size: 12px;
+      }
+
+      .form-group input {
+        padding: 10px;
+        font-size: 12px;
+      }
+
+      button {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      .login-link {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left Section -->
+    <div class="left-section">
+      <h1>Online Medical Store <span>💊</span></h1>
+      <p>Welcome back to Online Medical Store! Login to access your healthcare essentials.</p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+      <h2>Login to Your Account</h2>
+      <p class="subtitle">Enter your credentials to continue</p>
+      <p class="error-message" id="error-message"></p>
+      <p class="success-message" id="success-message"></p>
+
+      <form id="login-form" method="POST" action="/api/users/login" role="form" autocomplete="off">
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password *</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required />
+          <div class="forgot-password">
+            <a href="/forgot-password">Forgot password?</a>
+          </div>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+
+      <p class="login-link">Don't have an account? <a href="/register">Register here</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', async function (event) {
+      event.preventDefault();
+      
+      const form = event.target;
+      const errorMessage = document.getElementById('error-message');
+      const successMessage = document.getElementById('success-message');
+      
+      errorMessage.style.display = 'none';
+      successMessage.style.display = 'none';
+      errorMessage.textContent = '';
+      successMessage.textContent = '';
+
+      // Get form data
+      const formData = {
+        email: form.email.value.trim().toLowerCase(),
+        password: form.password.value
+      };
+
+      // Client-side validation
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+        showError('Please enter a valid email address');
+        return;
+      }
+
+      if (formData.password.length < 8) {
+        showError('Password must be at least 8 characters');
+        return;
+      }
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.message || 'Login failed. Please try again.');
+        }
+
+        // Login successful
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('refreshToken', data.refreshToken);
+
+        // Immediately redirect to home page
+        window.location.replace(data.redirect || '/');
+      } catch (error) {
+        showError(error.message);
+      }
+    });
+
+    function showError(message) {
+      const errorElement = document.getElementById('error-message');
+      errorElement.textContent = message;
+      errorElement.style.display = 'block';
+    }
+
+    function showSuccess(message) {
+      const successElement = document.getElementById('success-message');
+      successElement.textContent = message;
+      successElement.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
