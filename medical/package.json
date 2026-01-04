@@ -2,11 +2,12 @@
   "name": "smartkart-backend",
   "version": "1.0.0",
   "main": "app.js",
-  "scripts": {
-    "start": "nodemon app.js",
-    "build": "npm install",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+ "scripts": {
+  "start": "node app.js",
+  "dev": "nodemon app.js", 
+  "build": "npm install",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
   "keywords": [],
   "type": "module",
   "author": "",
